@@ -20,7 +20,7 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun ContentView() {
-
+    ProfileScreen()
 }
 
 @Preview(showBackground = true)
