@@ -20,7 +20,7 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun ContentView() {
-
+    Navigation()
 }
 
 @Preview(showBackground = true)
