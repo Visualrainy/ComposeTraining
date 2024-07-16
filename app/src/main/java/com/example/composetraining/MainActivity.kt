@@ -5,6 +5,7 @@ import android.view.animation.OvershootInterpolator
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
@@ -68,21 +69,20 @@ fun ContentView() {
 
 @Composable
 fun SplashScreen(navController: NavController) {
-    var started by remember {
-        mutableStateOf(false)
+    val scale = remember {
+        Animatable(0f)
     }
-    val scale = animateFloatAsState(
-        targetValue = if (started) 1.3f else 0f,
-        animationSpec = tween(
-            durationMillis = 1000,
-            easing = { fraction ->
-                OvershootInterpolator(2f).getInterpolation(fraction)
-            }
-        ), label = ""
-    )
 
     LaunchedEffect(key1 = true) {
-        started = true
+        scale.animateTo(
+            targetValue = 1.3f,
+            animationSpec = tween(
+                durationMillis = 1000,
+                easing = {
+                    OvershootInterpolator(2f).getInterpolation(it)
+                }
+            )
+        )
         delay(5000L)
         navController.navigate("main_screen")
     }
