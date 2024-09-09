@@ -9,12 +9,14 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.composetraining.ui.theme.ComposeTrainingTheme
 import com.example.composetraining.ui.theme.LocalSpacing
+import com.example.composetraining.ui.theme.spacing
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,7 +36,7 @@ fun ContentView() {
         modifier = Modifier
             .fillMaxWidth()
             .fillMaxHeight()
-            .padding(LocalSpacing.current.medium)
+            .padding(MaterialTheme.spacing.large)
             .background(Color.Red)
     ) {
 
