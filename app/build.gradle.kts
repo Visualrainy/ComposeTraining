@@ -1,6 +1,19 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    id("kotlin-parcelize")
+    id("com.google.devtools.ksp") version "1.9.0-1.0.13"
+}
+
+kotlin {
+    sourceSets {
+        debug {
+            kotlin.srcDirs("build/generated/ksp/debug/kotlin")
+        }
+        release {
+            kotlin.srcDirs("build/generated/ksp/release/kotlin")
+        }
+    }
 }
 
 android {
@@ -50,6 +63,9 @@ android {
 }
 
 dependencies {
+
+    implementation(libs.compose.destinations)
+    ksp(libs.compose.destinations.compiler)
 
     implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.core.ktx)
