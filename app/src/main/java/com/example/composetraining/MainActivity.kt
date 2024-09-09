@@ -77,6 +77,7 @@ fun ProfileHeader(progress: Float) {
         progress = progress,
         modifier = Modifier.fillMaxWidth()
     ) {
+        val properties = motionProperties("profile_pic")
         Box(
             modifier = Modifier
                 .fillMaxWidth()
@@ -88,13 +89,18 @@ fun ProfileHeader(progress: Float) {
             contentDescription = null,
             modifier = Modifier
                 .clip(CircleShape)
-                .border(2.dp, color = Color.Green, shape = CircleShape)
+                .border(
+                    2.dp,
+                    color = properties.value.color("background"),
+                    shape = CircleShape
+                )
                 .layoutId("profile_pic")
         )
         Text(
             text = "Chris",
             fontSize = 24.sp,
-            modifier = Modifier.layoutId("username")
+            modifier = Modifier.layoutId("username"),
+            color = properties.value.color("background")
         )
     }
 }

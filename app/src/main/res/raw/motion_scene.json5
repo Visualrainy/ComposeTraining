@@ -5,7 +5,10 @@
         width: 40,
         height: 40,
         start: ['parent', 'start', 16],
-        top: ['parent', 'top', 16]
+        top: ['parent', 'top', 16],
+        custom: {
+          background:'#08ff04'
+        }
       },
       username: {
         start: ['profile_pic', 'end', 16],
@@ -27,7 +30,10 @@
         height: 150,
         start: ['parent', 'start'],
         end: ['parent', 'end'],
-        top: ['parent', 'top', 16]
+        top: ['parent', 'top', 16],
+        custom: {
+          background:'#ffffff'
+        }
       },
       username: {
         top: ['profile_pic', 'bottom', 16],
@@ -51,8 +57,13 @@
       pathMotionArc: 'startHorizontal',
       KeyFrames: {
         KeyAttributes: [{
-          target: 'profile_pic',
+          target: ['profile_pic'],
           frames: [0, 100]
+        },{
+          target: ['username'],
+          frames: [0, 50, 100],
+          translationX: [0, 70, 0],
+          rotationZ: [0, 180, 0],
         }],
       }
     }
