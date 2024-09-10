@@ -42,6 +42,7 @@ fun ContentView() {
     val scope = rememberCoroutineScope()
     ModalNavigationDrawer(
         drawerState = drawerState,
+        gesturesEnabled = drawerState.isOpen,
         drawerContent = {
             ModalDrawerSheet {
                 DrawerHeader()
